@@ -1,0 +1,308 @@
+.containerProfile {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(0, 0, 0),
+            rgb(10, 10, 30),
+            rgb(0, 0, 50),
+            rgb(10, 10, 30),
+            rgb(0, 0, 0));
+    perspective: 1000px;
+}
+
+.starsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: starAnimation 2s linear infinite;
+    pointer-events: none;
+    transform: translateZ(0) scale(0);
+    width: 0.7rem;
+    height: 0.7rem;
+}
+
+@keyframes starAnimation {
+    0% {
+        transform: translateZ(0) scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateZ(-1000px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ... (otros estilos) */
+
+/* ... (otros estilos) */
+
+/* ... (otros estilos) */
+
+/* ... (otros estilos) */
+
+.sun {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    top: 10%;
+    left: 10%;
+
+    /* Efecto de cambio de color (lava) */
+    animation: blinkAnimation 2s ease-in-out infinite,
+        rotateAnimation 10s linear infinite,
+        changeColor 10s linear infinite;
+    /* Combinar todas las animaciones aquí */
+
+    /* Agregar una sombra para crear la aureola */
+    box-shadow: 0 0 50px rgba(255, 204, 0, 0.6);
+    /* Amarillo claro */
+}
+
+
+@keyframes changeColor {
+    0%, 100% {
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 204, 0, 1) 20%, /* Amarillo más intenso */
+            rgba(255, 102, 0, 1) 40%, /* Rojo intenso */
+            rgba(255, 0, 0, 1) 60% /* Rojo más intenso */
+        );
+    }
+    5%, 95% {
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 204, 0, 1) 20%, /* Amarillo más intenso */
+            rgba(255, 178, 0, 1) 40%, /* Naranja más suave */
+            rgba(255, 51, 0, 1) 60% /* Rojo */
+        );
+    }
+    10%, 90% {
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 204, 0, 1) 20%, /* Amarillo más intenso */
+            rgba(255, 153, 0, 1) 40%, /* Naranja */
+            rgba(255, 26, 0, 1) 60% /* Rojo más suave */
+        );
+    }
+    15%, 85% {
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 204, 0, 1) 20%, /* Amarillo más intenso */
+            rgba(255, 102, 0, 1) 40%, /* Rojo intenso */
+            rgba(255, 0, 0, 1) 60% /* Rojo más intenso */
+        );
+    }
+    20%, 80% {
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 204, 0, 1) 20%, /* Amarillo más intenso */
+            rgba(255, 128, 0, 1) 40%, /* Naranja más suave */
+            rgba(255, 77, 0, 1) 60% /* Rojo */
+        );
+    }
+    25%, 75% {
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 204, 0, 1) 20%, /* Amarillo más intenso */
+            rgba(255, 102, 0, 1) 40%, /* Rojo intenso */
+            rgba(255, 0, 0, 1) 60% /* Rojo más intenso */
+        );
+    }
+    30%, 70% {
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 255, 0, 1) 20%, /* Amarillo */
+            rgba(255, 153, 51, 1) 40%, /* Naranja */
+            rgba(255, 51, 51, 1) 60% /* Rojo */
+        );
+    }
+    50% {
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 255, 0, 1) 20%, /* Amarillo */
+            rgba(255, 204, 0, 1) 40%, /* Amarillo más intenso */
+            rgba(255, 102, 0, 1) 60% /* Rojo intenso */
+        );
+    }
+}
+
+
+
+/* ... (otros estilos) */
+
+
+
+
+.earth {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle at center,
+        #3e78ad 15%, /* Agua */
+        #6795c1 25%, /* Agua más clara */
+        #376b9c 30%, /* Agua oscura */
+        #174377 45%, /* Océano más profundo */
+        #3c5c1a 46%, /* Tierra - Verde oscuro */
+        #6f8949 50%, /* Tierra - Verde claro */
+        #d6a87f 70%, /* Tierra - Marrón claro */
+        #9d7240 80% /* Tierra - Marrón oscuro */
+    );
+
+    /* Agregar efectos o animaciones si lo deseas */
+}
+
+/* ... (otros estilos) */
+
+
+
+.anotherSun {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 10%;
+    right: 10%;
+
+    background: radial-gradient(
+        circle at center,
+        #536cff 20%, /* Azul */
+        #87a2c2 40%, /* Azul claro */
+        #b9cde8 60%, /* Azul más claro */
+        #4d68a3 80% /* Azul oscuro */
+    );
+
+    box-shadow: 0 0 50px rgba(83, 108, 255, 0.6);
+
+    /* Agregar animación de cambio de color similar al sol original */
+    animation: blinkAnimation 2s ease-in-out infinite,
+        rotateAnimation 10s linear infinite,
+        changeColorAnotherSun 10s linear infinite;
+}
+
+@keyframes changeColorAnotherSun {
+    0%, 100% {
+        background: radial-gradient(
+            circle at center,
+            #536cff 20%, /* Azul */
+            #87a2c2 40%, /* Azul claro */
+            #b9cde8 60%, /* Azul más claro */
+            #4d68a3 80% /* Azul oscuro */
+        );
+    }
+    5%, 95% {
+        background: radial-gradient(
+            circle at center,
+            #537cff 20%, /* Azul más claro */
+            #87b2c2 40%, /* Azul aún más claro */
+            #a9cde8 60%, /* Azul claro */
+            #4e68a3 80% /* Azul oscuro */
+        );
+    }
+    10%, 90% {
+        background: radial-gradient(
+            circle at center,
+            #539cff 20%, /* Azul aún más claro */
+            #89b2c2 40%, /* Azul aún más claro */
+            #a9cde8 60%, /* Azul claro */
+            #4e68a3 80% /* Azul oscuro */
+        );
+    }
+    15%, 85% {
+        background: radial-gradient(
+            circle at center,
+            #539cff 20%, /* Azul aún más claro */
+            #8cb2c2 40%, /* Azul más claro */
+            #c9cde8 60%, /* Azul pálido */
+            #5068a3 80% /* Azul oscuro */
+        );
+    }
+    20%, 80% {
+        background: radial-gradient(
+            circle at center,
+            #56a8ff 20%, /* Azul claro */
+            #a0b2c2 40%, /* Azul pálido */
+            #e0cde8 60%, /* Azul pálido */
+            #5368a3 80% /* Azul oscuro */
+        );
+    }
+    25%, 75% {
+        background: radial-gradient(
+            circle at center,
+            #5bc3ff 20%, /* Azul claro */
+            #b8c2c2 40%, /* Azul pálido */
+            #f0cde8 60%, /* Azul pálido */
+            #5468a3 80% /* Azul oscuro */
+        );
+    }
+    30%, 70% {
+        background: radial-gradient(
+            circle at center,
+            #5ce3ff 20%, /* Azul claro */
+            #c7c2c2 40%, /* Azul pálido */
+            #ffd3e0 60%, /* Rosa claro */
+            #5568a3 80% /* Azul oscuro */
+        );
+    }
+    35%, 65% {
+        background: radial-gradient(
+            circle at center,
+            #5cfffc 20%, /* Cian claro */
+            #d2c2c2 40%, /* Gris pálido */
+            #ffcde0 60%, /* Rosa pálido */
+            #5768a3 80% /* Azul oscuro */
+        );
+    }
+    40%, 60% {
+        background: radial-gradient(
+            circle at center,
+            #5cffea 20%, /* Cian claro */
+            #d8c2c2 40%, /* Gris pálido */
+            #ffe0d6 60%, /* Rosa pálido */
+            #5968a3 80% /* Azul oscuro */
+        );
+    }
+    45%, 55% {
+        background: radial-gradient(
+            circle at center,
+            #5cffc9 20%, /* Cian claro */
+            #ddc2c2 40%, /* Gris pálido */
+            #ffe9b9 60%, /* Amarillo pálido */
+            #5b68a3 80% /* Azul oscuro */
+        );
+    }
+    /* ... (continuar con más etapas de cambio de color si lo deseas) */
+}
+
+.additionalStarFugaz {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: starFugazAnimation 4s linear forwards;
+    pointer-events: none;
+    transform: translateZ(0) scale(0);
+    width: 0.7rem;
+    height: 0.7rem;
+    border-left: 0.35rem solid transparent;
+    border-right: 0.35rem solid transparent;
+    border-bottom: 0.7rem solid rgba(255, 255, 255, 0.8);
+    animation: starFugazAnimation 4s linear forwards;
+    pointer-events: none;
+    transform: translateZ(0) translateY(-50%) scale(0);
+}
