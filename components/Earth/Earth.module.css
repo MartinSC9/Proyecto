@@ -1,7 +1,7 @@
 .earth {
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 12vw;
+    height: 12vw;
     border-radius: 50%;
     top: calc(60% + 1.5px);
     /* Movimiento hacia abajo */

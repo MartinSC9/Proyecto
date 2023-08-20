@@ -11,8 +11,6 @@ import OrbitTwo from '../components/Orbit/OrbitTwo/OrbitTwo';
 import Asteroids from '../components/Asteroids/Asteroids';
 
 const Profile = () => {
-
-
     const [additionalStarFugazes, setAdditionalStarFugazes] = useState([]);
 
     useEffect(() => {
@@ -24,17 +22,7 @@ const Profile = () => {
 
         setAdditionalStarFugazes(additionalStarsData);
     }, []);
-    const [starFugaz, setStarFugaz] = useState(null);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setStarFugaz({ delay: Math.random() * 4 }); // Delay between 0 and 4 seconds
-        }, 4000);
-
-        return () => {
-            clearInterval(interval);
-        };
-    }, []);
 
     useEffect(() => {
         document.body.style.margin = '0';
@@ -51,8 +39,8 @@ const Profile = () => {
     }, []);
 
     const randomPosition = () => {
-        const maxX = window.innerWidth - 20;
-        const maxY = window.innerHeight - 20;
+        const maxX = window.innerWidth - 40;
+        const maxY = window.innerHeight - 40;
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
         return { x, y };
@@ -66,15 +54,12 @@ const Profile = () => {
     const handleMouseMoveTrail = (event) => {
         const { clientX, clientY } = event;
         const newCursor = {
-            x: clientX - 7.5, // Adjust for half of the cursor's width
-            y: clientY - 7.5, // Adjust for half of the cursor's height
+            x: clientX - 15.5,
+            y: clientY - 15.5,
             id: Date.now(),
         };
 
-        setTrailCursors((prevCursors) => {
-            const updatedCursors = [...prevCursors, newCursor].slice(-20);
-            return updatedCursors;
-        });
+        setTrailCursors((prevCursors) => [...prevCursors, newCursor]);
     };
 
     useEffect(() => {
@@ -84,19 +69,31 @@ const Profile = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTrailCursors((prevCursors) => {
+                if (prevCursors.length > 0) {
+                    return prevCursors.slice(1); // Remove the oldest cursor
+                }
+                return prevCursors;
+            });
+        }, 30); // Remove one cursor every second
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className={styles.containerProfile}>
             <Sun />
             <Planet />
             <Earth />
             <Moon />
-            <Stars randomPosition={randomPosition}/>
-            <div className={styles.welcomeText}>
+            <Stars randomPosition={randomPosition} />
+            {/* <div className={styles.welcomeText}>
                 ¡Welcome!
-            </div>
+            </div> */}
 
             <div className={styles.starFugazesContainer}>
-                {starFugaz && <StarFugaz delay={starFugaz.delay} />}
                 {additionalStarFugazes.map((star, index) => (
                     <StarFugaz key={index} delay={star.delay} />
                 ))}
@@ -104,8 +101,8 @@ const Profile = () => {
             <OrbitOne />
             <OrbitTwo />
             <Asteroids randomPosition={randomPosition} />
-                <div className={styles.cursorFollowerContainer}>
-                {trailCursors.map((cursor) => (
+            <div className={styles.cursorFollowerContainer}>
+            {trailCursors.map((cursor) => (
                     <div
                         key={cursor.id}
                         className={styles.cursorFollower}
