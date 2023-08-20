@@ -1,0 +1,170 @@
+.planet {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 12%;
+    right: 10%;
+
+    background: radial-gradient(circle at center,
+            #536cff 20%,
+            /* Azul */
+            #87a2c2 40%,
+            /* Azul claro */
+            #b9cde8 60%,
+            /* Azul más claro */
+            #4d68a3 80%
+            /* Azul oscuro */
+        );
+
+    box-shadow: 0 0 50px rgba(83, 108, 255, 0.6);
+
+    /* Agregar animación de cambio de color similar al sol original */
+    animation:
+        changeColorAnotherSun 10s linear infinite;
+}
+
+@keyframes changeColorAnotherSun {
+
+    0%,
+    100% {
+        background: radial-gradient(circle at center,
+                #536cff 20%,
+                /* Azul */
+                #87a2c2 40%,
+                /* Azul claro */
+                #b9cde8 60%,
+                /* Azul más claro */
+                #4d68a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    5%,
+    95% {
+        background: radial-gradient(circle at center,
+                #537cff 20%,
+                /* Azul más claro */
+                #87b2c2 40%,
+                /* Azul aún más claro */
+                #a9cde8 60%,
+                /* Azul claro */
+                #4e68a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    10%,
+    90% {
+        background: radial-gradient(circle at center,
+                #539cff 20%,
+                /* Azul aún más claro */
+                #89b2c2 40%,
+                /* Azul aún más claro */
+                #a9cde8 60%,
+                /* Azul claro */
+                #4e68a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    15%,
+    85% {
+        background: radial-gradient(circle at center,
+                #539cff 20%,
+                /* Azul aún más claro */
+                #8cb2c2 40%,
+                /* Azul más claro */
+                #c9cde8 60%,
+                /* Azul pálido */
+                #5068a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    20%,
+    80% {
+        background: radial-gradient(circle at center,
+                #56a8ff 20%,
+                /* Azul claro */
+                #a0b2c2 40%,
+                /* Azul pálido */
+                #e0cde8 60%,
+                /* Azul pálido */
+                #5368a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    25%,
+    75% {
+        background: radial-gradient(circle at center,
+                #5bc3ff 20%,
+                /* Azul claro */
+                #b8c2c2 40%,
+                /* Azul pálido */
+                #f0cde8 60%,
+                /* Azul pálido */
+                #5468a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    30%,
+    70% {
+        background: radial-gradient(circle at center,
+                #5ce3ff 20%,
+                /* Azul claro */
+                #c7c2c2 40%,
+                /* Azul pálido */
+                #ffd3e0 60%,
+                /* Rosa claro */
+                #5568a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    35%,
+    65% {
+        background: radial-gradient(circle at center,
+                #5cfffc 20%,
+                /* Cian claro */
+                #d2c2c2 40%,
+                /* Gris pálido */
+                #ffcde0 60%,
+                /* Rosa pálido */
+                #5768a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    40%,
+    60% {
+        background: radial-gradient(circle at center,
+                #5cffea 20%,
+                /* Cian claro */
+                #d8c2c2 40%,
+                /* Gris pálido */
+                #ffe0d6 60%,
+                /* Rosa pálido */
+                #5968a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    45%,
+    55% {
+        background: radial-gradient(circle at center,
+                #5cffc9 20%,
+                /* Cian claro */
+                #ddc2c2 40%,
+                /* Gris pálido */
+                #ffe9b9 60%,
+                /* Amarillo pálido */
+                #5b68a3 80%
+                /* Azul oscuro */
+            );
+    }
+
+    /* ... (continuar con más etapas de cambio de color si lo deseas) */
+}

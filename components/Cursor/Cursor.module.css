@@ -1,0 +1,14 @@
+
+.cursorFollower {
+    position: absolute;
+    width: 15px; /* Ancho del rastro */
+    height: 15px; /* Alto del rastro */
+    background-color: white;
+    opacity: 0.5;
+    filter: blur(5px); /* Ajusta la cantidad de desenfoque */
+    pointer-events: none; /* Evita que el rastro interfiera con la interacción del usuario */
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: opacity 0.2s ease-in-out; 
+    opacity: 0.5;/* Agrega transición para una apariencia suave */
+}

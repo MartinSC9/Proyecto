@@ -1,0 +1,20 @@
+.orbitOne {
+    position: absolute;
+    width: 100%;
+    /* Ancho de la línea */
+    height: 6px;
+    background: linear-gradient(to bottom, rgba(0, 191, 255, 0.8), rgba(255, 255, 255, 0.2));
+    /* Gradiente de color celeste a blanco difuminado */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 10px rgba(0, 0, 255, 0.6));
+    /* Sombra blanca y azul */
+    transform-origin: center bottom;
+    /* Origen de la transformación para el giro */
+    transform: translateX(-50%) rotate(180deg);
+    /* Posición y rotación de la línea */
+    top: calc(10% + 60px);
+    /* Posición vertical de la línea (ajustar según tus necesidades) */
+    left: 50%;
+    /* Posición horizontal de la línea */
+    z-index: -1;
+    /* Colocar la línea detrás de los otros elementos */
+}

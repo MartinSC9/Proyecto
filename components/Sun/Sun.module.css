@@ -1,0 +1,114 @@
+.sun {
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    top: 25%;
+    left: 45%;
+
+    /* Efecto de cambio de color (lava) */
+    animation:changeColor 10s linear infinite;
+    /* Combinar todas las animaciones aquí */
+
+    /* Agregar una sombra para crear la aureola */
+    box-shadow: 0 0 50px rgba(255, 204, 0, 0.6);
+    /* Amarillo claro */
+}
+
+@keyframes changeColor {
+
+    0%,
+    100% {
+        background: radial-gradient(circle at center,
+                rgba(255, 204, 0, 1) 20%,
+                /* Amarillo más intenso */
+                rgba(255, 102, 0, 1) 40%,
+                /* Rojo intenso */
+                rgba(255, 0, 0, 1) 60%
+                /* Rojo más intenso */
+            );
+    }
+
+    5%,
+    95% {
+        background: radial-gradient(circle at center,
+                rgba(255, 204, 0, 1) 20%,
+                /* Amarillo más intenso */
+                rgba(255, 178, 0, 1) 40%,
+                /* Naranja más suave */
+                rgba(255, 51, 0, 1) 60%
+                /* Rojo */
+            );
+    }
+
+    10%,
+    90% {
+        background: radial-gradient(circle at center,
+                rgba(255, 204, 0, 1) 20%,
+                /* Amarillo más intenso */
+                rgba(255, 153, 0, 1) 40%,
+                /* Naranja */
+                rgba(255, 26, 0, 1) 60%
+                /* Rojo más suave */
+            );
+    }
+
+    15%,
+    85% {
+        background: radial-gradient(circle at center,
+                rgba(255, 204, 0, 1) 20%,
+                /* Amarillo más intenso */
+                rgba(255, 102, 0, 1) 40%,
+                /* Rojo intenso */
+                rgba(255, 0, 0, 1) 60%
+                /* Rojo más intenso */
+            );
+    }
+
+    20%,
+    80% {
+        background: radial-gradient(circle at center,
+                rgba(255, 204, 0, 1) 20%,
+                /* Amarillo más intenso */
+                rgba(255, 128, 0, 1) 40%,
+                /* Naranja más suave */
+                rgba(255, 77, 0, 1) 60%
+                /* Rojo */
+            );
+    }
+
+    25%,
+    75% {
+        background: radial-gradient(circle at center,
+                rgba(255, 204, 0, 1) 20%,
+                /* Amarillo más intenso */
+                rgba(255, 102, 0, 1) 40%,
+                /* Rojo intenso */
+                rgba(255, 0, 0, 1) 60%
+                /* Rojo más intenso */
+            );
+    }
+
+    30%,
+    70% {
+        background: radial-gradient(circle at center,
+                rgba(255, 255, 0, 1) 20%,
+                /* Amarillo */
+                rgba(255, 153, 51, 1) 40%,
+                /* Naranja */
+                rgba(255, 51, 51, 1) 60%
+                /* Rojo */
+            );
+    }
+
+    50% {
+        background: radial-gradient(circle at center,
+                rgba(255, 255, 0, 1) 20%,
+                /* Amarillo */
+                rgba(255, 204, 0, 1) 40%,
+                /* Amarillo más intenso */
+                rgba(255, 102, 0, 1) 60%
+                /* Rojo intenso */
+            );
+    }
+}

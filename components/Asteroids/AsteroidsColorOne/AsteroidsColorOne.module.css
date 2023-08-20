@@ -1,0 +1,21 @@
+.asteroidColorOne {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    border-radius: 50%;
+    animation: asteroidAnimation 4s linear infinite;
+    transform: translateZ(0) scale(0);
+    pointer-events: none;
+}
+
+@keyframes asteroidAnimation {
+    0% {
+        transform: translateZ(0) scale(0) rotate(0deg);
+        background: linear-gradient(90deg, rgb(71, 48, 23), rgb(175, 132, 54), rgb(78, 78, 78), rgb(4, 4, 4));
+    }
+
+    100% {
+        transform: translateZ(-1000px) scale(1) rotate(360deg);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.574), rgb(100, 100, 100), rgb(175, 132, 54), rgb(132, 132, 132));
+    }
+}

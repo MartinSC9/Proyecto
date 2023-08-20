@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Profile.module.css';
 import StarFugaz from '../components/StarFugaz/StarFugaz';
+import Sun from '../components/Sun/Sun';
+import Planet from '../components/Planet/Planet';
+import Earth from '../components/Earth/Earth';
+import Moon from '../components/Moon/Moon';
+import Stars from '../components/Stars/Stars';
+import OrbitOne from '../components/Orbit/OrbitOne/OrbitOne';
+import OrbitTwo from '../components/Orbit/OrbitTwo/OrbitTwo';
+import Asteroids from '../components/Asteroids/Asteroids';
 
 const Profile = () => {
+
+
     const [additionalStarFugazes, setAdditionalStarFugazes] = useState([]);
 
     useEffect(() => {
@@ -31,6 +41,13 @@ const Profile = () => {
         document.body.style.padding = '0';
         document.documentElement.style.margin = '0';
         document.documentElement.style.padding = '0';
+
+        document.body.style.cursor = 'none';
+
+        return () => {
+            // Restaurar el estilo del cursor al desmontar el componente
+            document.body.style.cursor = 'auto';
+        };
     }, []);
 
     const randomPosition = () => {
@@ -41,42 +58,65 @@ const Profile = () => {
         return { x, y };
     };
 
-    const [stars, setStars] = useState([]);
+
+
+
+    const [trailCursors, setTrailCursors] = useState([]);
+
+    const handleMouseMoveTrail = (event) => {
+        const { clientX, clientY } = event;
+        const newCursor = {
+            x: clientX - 7.5, // Adjust for half of the cursor's width
+            y: clientY - 7.5, // Adjust for half of the cursor's height
+            id: Date.now(),
+        };
+
+        setTrailCursors((prevCursors) => {
+            const updatedCursors = [...prevCursors, newCursor].slice(-20);
+            return updatedCursors;
+        });
+    };
 
     useEffect(() => {
-        const starsData = [...Array(800)].map((_, index) => {
-            const position = randomPosition();
-            const delay = Math.random() * 5; // Delay between 0 and 5 seconds
-            return { position, delay };
-        });
-
-        setStars(starsData);
+        document.addEventListener('mousemove', handleMouseMoveTrail);
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMoveTrail);
+        };
     }, []);
 
     return (
         <div className={styles.containerProfile}>
-            <div className={styles.sun}></div>
-            <div className={styles.anotherSun}></div> {/* Nuevo sol */}
-            <div className={styles.earth}></div> {/* Nuevo planeta Tierra */}
-            <div className={styles.starsContainer}>
-                {stars.map((star, index) => (
-                    <div
-                        key={index}
-                        className={styles.star}
-                        style={{
-                            left: `${star.position.x}px`,
-                            top: `${star.position.y}px`,
-                            animationDelay: `${star.delay}s`
-                        }}
-                    ></div>
-                ))}
+            <Sun />
+            <Planet />
+            <Earth />
+            <Moon />
+            <Stars randomPosition={randomPosition}/>
+            <div className={styles.welcomeText}>
+                ¡Welcome!
             </div>
+
             <div className={styles.starFugazesContainer}>
                 {starFugaz && <StarFugaz delay={starFugaz.delay} />}
                 {additionalStarFugazes.map((star, index) => (
                     <StarFugaz key={index} delay={star.delay} />
                 ))}
             </div>
+            <OrbitOne />
+            <OrbitTwo />
+            <Asteroids randomPosition={randomPosition} />
+                <div className={styles.cursorFollowerContainer}>
+                {trailCursors.map((cursor) => (
+                    <div
+                        key={cursor.id}
+                        className={styles.cursorFollower}
+                        style={{
+                            left: cursor.x + 'px',
+                            top: cursor.y + 'px',
+                        }}
+                    ></div>
+                ))}
+            </div>
+
         </div>
     );
 };

@@ -1,0 +1,44 @@
+.earth {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    top: calc(60% + 1.5px);
+    /* Movimiento hacia abajo */
+    left: 20%;
+    z-index: 82;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at center,
+            #2c3e50 15%,
+            /* Agua */
+            #34495e 25%,
+            /* Agua más clara */
+            #2c3e50 30%,
+            /* Agua oscura */
+            #1a1a1a 45%,
+            /* Océano más profundo */
+            #2ecc71 46%,
+            /* Tierra - Verde oscuro */
+            #58d68d 50%,
+            /* Tierra - Verde claro */
+            #d4ac0d 70%,
+            /* Tierra - Marrón claro */
+            #a56927 80%
+            /* Tierra - Marrón oscuro */
+        );
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+    /* Sombra blanca */
+    animation: earthAnimation 20s linear infinite;
+    /* Animación de rotación */
+}
+
+
+@keyframes earthAnimation {
+    0% {
+        background: linear-gradient(90deg, #3e78ad, #6795c1, #376b9c, #174377, #3c5c1a, #6f8949, #d6a87f, #9d7240);
+    }
+
+    100% {
+        background: linear-gradient(90deg, rgba(212, 212, 212, 0.574), rgb(100, 100, 100), #376b9c, #174377, #3c5c1a, #6f8949, #d6a87f, #9d7240);
+    }
+}

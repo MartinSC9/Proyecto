@@ -1,0 +1,19 @@
+.asteroidColorTwo {
+    position: absolute;
+    border-radius: 50%;
+    animation: planetAnimation 3s linear infinite;
+    transform: translateZ(0) scale(0);
+    pointer-events: none;
+}
+
+@keyframes planetAnimation {
+    0% {
+        transform: translateZ(0) scale(0) rotate(0deg);
+        background: linear-gradient(90deg, rgb(40, 110, 150), rgb(175, 200, 230), rgb(78, 78, 78), rgb(4, 4, 4));
+    }
+
+    100% {
+        transform: translateZ(-1000px) scale(1) rotate(360deg);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.574), rgb(100, 100, 100), rgb(175, 200, 230), rgb(132, 132, 132));
+    }
+}
