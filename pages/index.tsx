@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import React from 'react';
 import { useRouter } from 'next/router';
 
-export default function Home() {
+export default function Profile() {
   const [animateBackground, setAnimateBackground] = React.useState(false);
   const router = useRouter();
   React.useEffect(() => {

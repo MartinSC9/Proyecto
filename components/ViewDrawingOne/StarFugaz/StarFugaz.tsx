@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/StarFugaz.module.css';
+import styles from './StarFugaz.module.css';
 
 const StarFugaz = ({ delay }) => {
     return (

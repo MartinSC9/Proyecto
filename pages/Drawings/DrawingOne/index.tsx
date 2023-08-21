@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/Profile.module.css';
-import StarFugaz from '../components/StarFugaz/StarFugaz';
-import Sun from '../components/Sun/Sun';
-import Planet from '../components/Planet/Planet';
-import Earth from '../components/Earth/Earth';
-import Moon from '../components/Moon/Moon';
-import Stars from '../components/Stars/Stars';
-import OrbitOne from '../components/Orbit/OrbitOne/OrbitOne';
-import OrbitTwo from '../components/Orbit/OrbitTwo/OrbitTwo';
-import Asteroids from '../components/Asteroids/Asteroids';
+import styles from './index.module.css';
+import Sun from '../../../components/ViewDrawingOne/Sun/Sun';
+import Planet from '../../../components/ViewDrawingOne/Planet/Planet';
+import Earth from '../../../components/ViewDrawingOne/Earth/Earth';
+import Moon from '../../../components/ViewDrawingOne/Moon/Moon';
+import Stars from '../../../components/ViewDrawingOne/Stars/Stars';
+import StarFugaz from '../../../components/ViewDrawingOne/StarFugaz/StarFugaz';
+import OrbitOne from '../../../components/ViewDrawingOne/Orbit/OrbitOne/OrbitOne';
+import OrbitTwo from '../../../components/ViewDrawingOne/Orbit/OrbitTwo/OrbitTwo';
+import Asteroids from '../../../components/ViewDrawingOne/Asteroids/Asteroids';
 
-const Profile = () => {
+
+const DrawingOne = () => {
     const [additionalStarFugazes, setAdditionalStarFugazes] = useState([]);
+    const [trailCursors, setTrailCursors] = useState([]);
 
     useEffect(() => {
         const additionalStarsData = [...Array(2)].map((_, index) => {
@@ -19,19 +21,15 @@ const Profile = () => {
             const delay = Math.random() * 2; // Delay between 0 and 4 seconds
             return { position, delay };
         });
-
         setAdditionalStarFugazes(additionalStarsData);
     }, []);
-
 
     useEffect(() => {
         document.body.style.margin = '0';
         document.body.style.padding = '0';
         document.documentElement.style.margin = '0';
         document.documentElement.style.padding = '0';
-
         document.body.style.cursor = 'none';
-
         return () => {
             // Restaurar el estilo del cursor al desmontar el componente
             document.body.style.cursor = 'auto';
@@ -39,17 +37,12 @@ const Profile = () => {
     }, []);
 
     const randomPosition = () => {
-        const maxX = window.innerWidth - 40;
-        const maxY = window.innerHeight - 40;
+        const maxX = window.innerWidth - 30;
+        const maxY = window.innerHeight - 30;
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
         return { x, y };
     };
-
-
-
-
-    const [trailCursors, setTrailCursors] = useState([]);
 
     const handleMouseMoveTrail = (event) => {
         const { clientX, clientY } = event;
@@ -77,8 +70,7 @@ const Profile = () => {
                 }
                 return prevCursors;
             });
-        }, 30); // Remove one cursor every second
-
+        }, 0.3); // Remove one cursor every second
         return () => clearInterval(interval);
     }, []);
 
@@ -89,10 +81,6 @@ const Profile = () => {
             <Earth />
             <Moon />
             <Stars randomPosition={randomPosition} />
-            {/* <div className={styles.welcomeText}>
-                ¡Welcome!
-            </div> */}
-
             <div className={styles.starFugazesContainer}>
                 {additionalStarFugazes.map((star, index) => (
                     <StarFugaz key={index} delay={star.delay} />
@@ -118,4 +106,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default DrawingOne;
